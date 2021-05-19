@@ -1,17 +1,17 @@
 <template>
   <div class="header__body">
     <div>Hello world</div>
-    <!-- <marquee-text /> -->
+    <marquee-text />
   </div>
 </template>
 
 <script>
-// import MarqueeText from "./components/marquee.vue";
+import MarqueeText from "./components/marquee.vue";
 
 export default {
   name: "app",
   components: {
-    // MarqueeText,
+    MarqueeText,
   },
 };
 </script>
