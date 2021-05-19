@@ -1,16 +1,17 @@
 <template>
   <div class="header__body">
-    HelloWorld !
+    <div>Hello world</div>
+    <!-- <marquee-text /> -->
   </div>
 </template>
 
 <script>
-// import Hello from "./components/Hello.vue";
+// import MarqueeText from "./components/marquee.vue";
 
 export default {
   name: "app",
   components: {
-    // Hello,
+    // MarqueeText,
   },
 };
 </script>
