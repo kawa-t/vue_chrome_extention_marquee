@@ -1,6 +1,5 @@
 <template>
   <div class="header__body">
-    <div>Hello world</div>
     <marquee-text />
   </div>
 </template>

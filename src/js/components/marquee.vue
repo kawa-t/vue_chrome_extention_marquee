@@ -4,20 +4,30 @@
       class="marquee_text"
       :style="`animation-duration:${duration}s;` + `width:${textWidth}px;`"
     >
-      {{ textMessage }}
+      <li v-for="user in users" :key="user.id">{{ user.name }}</li>
     </div>
   </div>
 </template>
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
       textMessage: "コンポーネントです",
       duration: "",
       textWidth: "",
+      users: [],
     };
   },
   methods: {
+    getData: function() {
+      axios
+        .get("https://api.coin.z.com/public/v1/orderbooks?symbol=XRP")
+        .then((response) => {
+          console.log(response.data);
+        });
+    },
     resize: function() {
       let consider = this.textMessage.length;
       // 画面幅と文字列全体の幅から、文字が流れる速度を決める
@@ -30,6 +40,7 @@ export default {
     },
   },
   mounted: function() {
+    this.getData(); // データを取得する
     this.resize(); // 画面リサイズ時のスタイル更新処理を呼び出す
   },
 };
@@ -57,7 +68,7 @@ export default {
   }
   100%,
   to {
-    transform: translate(-100%); /* 画面左端まで移動する */
+    transform: translate(-120%); /* 画面左端まで移動する */
   }
 }
 </style>
