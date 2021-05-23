@@ -6,9 +6,18 @@ const gasScript = axios.create({
 });
 
 // interceptors = Gasの中にerrorが含まれていたらrejectする
-gasScript.interceptors.response.use((res) => {
-  if (res.data.error) {
-    return Promise.reject(res.data.error);
+gasScript.interceptors.response.use(
+  (res) => {
+    if (res.data.error) {
+      return Promise.reject(res.data.error);
+    }
+    return Promise.resolve(res);
+  },
+  (err) => {
+    return Promise.reject(err);
   }
-  return Promise.resolve(res);
-});
+);
+
+const setUrl = (url) => {
+  gasScript.defaults.baseURL = url;
+};

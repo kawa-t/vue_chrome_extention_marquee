@@ -4,7 +4,9 @@
       class="marquee_text"
       :style="`animation-duration:${duration}s;` + `width:${textWidth}px;`"
     >
-      <li v-for="user in users" :key="user.id">{{ user.name }}</li>
+      <div>||　　now xrp chart {{ xrpData[1] }} yan</div>
+      <div>||　　24h hegh price {{ xrpData[2] }} yan</div>
+      <div>||　　24h low price {{ xrpData[3] }} yan　　||</div>
     </div>
   </div>
 </template>
@@ -17,16 +19,18 @@ export default {
       textMessage: "コンポーネントです",
       duration: "",
       textWidth: "",
-      users: [],
+      xrpData: [],
     };
   },
   methods: {
     getData: function() {
-      axios
-        .get("https://api.coin.z.com/public/v1/orderbooks?symbol=XRP")
-        .then((response) => {
-          console.log(response.data);
-        });
+      const targetUrl =
+        "https://script.google.com/macros/s/AKfycbxMw7wofgG4CT3Po_ISXgm28K4LxfeJuPLPzVGydCutMBi6uhF1yqRBvFVlnbbNx4E8/exec";
+
+      axios.get(targetUrl).then((response) => {
+        // console.log(response.data);
+        this.xrpData = response.data;
+      });
     },
     resize: function() {
       let consider = this.textMessage.length;
@@ -50,12 +54,14 @@ export default {
 .marquee {
   width: 100%; /** 幅は親要素に合わせる */
   overflow: hidden; /** 親要素からはみ出した部分は非表示とする */
+  padding-top: 7px;
 }
 
 .marquee_text {
   padding-left: 100%; /** 表示する要素が完全に画面右端からはみ出すように位置を調整 */
   text-align: left;
   white-space: nowrap;
+  display: flex;
 
   animation-name: marquee; /** 流れる文字のアニメーション設定 */
   animation-timing-function: linear;
