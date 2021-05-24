@@ -1,12 +1,17 @@
 {
   "manifest_version": 2,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "name": "chrome extestion使ってみた",
   "content_scripts": [
     {
-      "matches": ["https://www.google.co.jp/*"],
+      "matches": ["https://www.google.co.jp/*", "https://github.com/kawa-t"],
       "js": ["js/app.js"]
     }
   ],
-  "permissions": ["tabs", "activeTab", "https://www.google.co.jp/*"]
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "https://www.google.co.jp/*",
+    "https://github.com/kawa-t"
+  ]
 }
