@@ -16,7 +16,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      textMessage: "コンポーネントです",
+      textMessage: "",
       duration: "",
       textWidth: "",
       xrpData: [],
