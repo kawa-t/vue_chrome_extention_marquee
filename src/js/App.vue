@@ -17,6 +17,9 @@ export default {
 <style scoped>
 .header__body {
   background-image: linear-gradient(to right, #ff5858 0%, #f09819 100%);
-  height: 30px;
+  height: 25px;
+  position: fixed;
+  width: 100%;
+  top: 60px;
 }
 </style>

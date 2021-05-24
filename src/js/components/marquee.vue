@@ -54,7 +54,7 @@ export default {
 .marquee {
   width: 100%; /** 幅は親要素に合わせる */
   overflow: hidden; /** 親要素からはみ出した部分は非表示とする */
-  padding-top: 7px;
+  padding-top: 1px;
 }
 
 .marquee_text {
